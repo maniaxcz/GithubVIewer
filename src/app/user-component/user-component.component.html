@@ -1,0 +1,55 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
+
+<div id="user-header">
+  <div id="user-intro">
+          <div id="github-link">
+              <div class="item item1"><img [src]="avatar" /></div>
+              <div class="item item2"><i class="fa-solid fa-link"></i><a [href]="github">{{ github }}</a></div>
+          </div>
+          <ul id="info-list">
+          <li id="name">
+            <h3 class="special">{{ name }}</h3>
+          </li>
+      <li id="bio">{{ bio }}</li>
+      <li id="location">
+        <i class="fa-solid fa-location-dot"></i> {{ location }}
+      </li>
+      <li>
+        <i class="fa-brands fa-twitter"></i
+        ><a id="twitter" [href]="twitter">Twitter</a>
+      </li>
+    </ul> 
+    <!-- <div id="github-link">
+      <i class="fa-solid fa-link"></i><a [href]="github">{{ github }}</a>
+    </div> -->
+</div>
+
+  <hr>
+
+
+  <div class="user-repos">
+    <ul id="repos" *ngFor="let repo of repos | paginate:{ id:'listing_repos',itemsPerPage:10, currentPage:page, totalItems:totalRecords}">
+      <li>
+        <h2 class="special">{{ repo.name | uppercase}}</h2>
+        <h3>{{ repo.description }}</h3>
+        <div id="languages">        
+          <ul *ngFor="let lang of repo.language | keyvalue">
+              <div class="item">
+                  <li>{{lang.key}}</li>
+            </div>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <pagination-controls  id="listing_repos"
+                      (pageChange)="page = $event"
+                      [maxSize]="300"
+                      [directionLinks]="true">
+    </pagination-controls>
+  </div>
+</div>

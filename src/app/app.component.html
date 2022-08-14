@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Github Viewer</title>
+</head>
+<body>
+  <div id="search">
+      <input id = "searchUser" type="text" #uid placeholder="Enter Github Username" (change)="setUsername(uid.value)">
+      <button (click)="setUsername(uid.value)"> Enter</button><br>
+      <button (click)="reload()">Search Again</button>
+  </div>
+  <app-user-component [username]="uid.value" *ngIf="githubusername" ></app-user-component>
+</body>
+</html>

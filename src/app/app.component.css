@@ -1,0 +1,10 @@
+
+#search{
+    display: flex;
+    justify-content: center;
+    margin-left: 200px;
+}
+#searchUser{
+    width: 30%;
+    height: 30%;
+}
